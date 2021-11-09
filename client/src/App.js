@@ -1,4 +1,5 @@
 import ManagementCards from "./components/ManagementCards";
+import ManagementContainer from "./components/ManagementContainer";
 import Topbar from "./components/Topbar";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="App">
       <Topbar />
       <ManagementCards />
+      <ManagementContainer />
     </div>
   );
 }

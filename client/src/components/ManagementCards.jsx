@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Container, Grid, Card, CardContent, CardActions, Typography, 
         Button, Modal, Box, TextField, FormControl, InputLabel, Select, MenuItem } from "@mui/material";
+import PersonIcon from '@mui/icons-material/Person';
 import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 
@@ -48,7 +49,7 @@ export default function ManagementCards() {
                                 alignItems: 'center',
                             }}
                             >
-                                <EmojiPeopleIcon />
+                                <PersonIcon />
                                 <Typography sx={{ marginTop: "5px", fontSize: 18 }} gutterBottom>
                                 Students
                                 </Typography>
