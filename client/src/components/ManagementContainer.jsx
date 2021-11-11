@@ -1,70 +1,53 @@
-import { Container, ButtonGroup,Button, Typography, Box } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
+import { Container, Grid, Card, CardContent, CardActions, Typography, Button, Box } from "@mui/material";
+import { Link } from "react-router-dom";
+import PersonIcon from '@mui/icons-material/Person';
+import StudentList from "./StudentList";
 
-export default function ManagementContainer() {
-    const [data, setData] = useState([]);
-    const [dataValue, setDataValue] = useState("");
-    const handleStudentButtonClick = () => {
-        setDataValue("student");
-        fetchData("http://localhost:8080/api/students")
-    };
-    const handleTeacherButtonClick = () => {
-        setDataValue("teacher");
-        fetchData("http://localhost:8080/api/students");
-    };
-    const handleCourseButtonClick = () => {
-        setDataValue("course");
-        fetchData("http://localhost:8080/api/students");
-    };
+function ManagementCards() {
 
-    async function fetchData(link) {
-        try{
-            const result = await axios.get(link);
-            setData(result.data);
-        } catch (e) {
-            console.error(e);
-        }
-    }
-
-    useEffect(() => {
-        console.log(data);
-    }, [data]);
+    const boxRowStyle = {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+    };
 
     return (
-        <Container>
-            <Box
-            mt={4}
-            sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-            }}
-            >
-                <Box
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                }}
-                >
-                    <ButtonGroup variant="contained" aria-label="outlined primary button group">
-                        <Button sx={{ backgroundColor: "#1f1f1f"}} onClick={handleStudentButtonClick}>Show Students</Button>
-                        <Button sx={{ backgroundColor: "#1f1f1f"}} onClick={handleTeacherButtonClick}>Show Teachers</Button>
-                        <Button sx={{ backgroundColor: "#1f1f1f"}} onClick={handleCourseButtonClick}>Show Courses</Button>
-                    </ButtonGroup>
-                </Box>
-            </Box>
-            {dataValue === "" && (
-                <div></div>
-            )}
-            {dataValue === "student" && (
-                data.map(element => 
-                    <Typography key={element.id}>
-                        {element.email}
-                    </Typography>
-                )
-            )}
-        </Container>
+        <Grid mt={2} container spacing={2}>
+            <Grid item xs={12}>
+                <Card raised={true} sx={{ minWidth: 275 }}>
+                    <CardContent>
+                        <Box sx={boxRowStyle}>
+                            <PersonIcon />
+                            <Typography sx={{ marginTop: "5px", fontSize: 18, fontWeight: "bold" }} gutterBottom>
+                            Students
+                            </Typography>
+                        </Box>
+                        <Typography sx={{ mb: 1 }}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa id neque aliquam vestibulum.
+                        </Typography>
+                    </CardContent>
+                    <CardActions>
+                        <Button size="small" fullWidth>
+                            <Link to="/students/add" style={{ textDecoration: "none", color: "inherit" }}>
+                                Add Student
+                            </Link>
+                        </Button>
+                    </CardActions>
+                </Card>
+            </Grid>
+        </Grid>
+    );
+}
+
+export default function ManagementContainer() {
+    return (
+        <>
+            <Container maxWidth={"xs"}>
+                <ManagementCards />
+            </Container>
+            <StudentList />
+        </>
+        
     );
 }

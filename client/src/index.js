@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from "react-router-dom";
 import { CssBaseline } from '@mui/material';
 import './index.css';
 import App from './App';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <BrowserRouter>
     <CssBaseline />
     <App />
-  </React.StrictMode>,
+  </BrowserRouter>,
   document.getElementById('root')
 );

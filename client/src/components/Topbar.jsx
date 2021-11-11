@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, AppBar, Toolbar, IconButton, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 import PersonIcon from '@mui/icons-material/Person';
 
 export default function Topbar() {
@@ -14,7 +15,9 @@ export default function Topbar() {
                     aria-label="menu"
                     sx={{ mr: 2 }}
                 >
-                    <PersonIcon />
+                    <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+                        <PersonIcon />
+                    </Link>
                 </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     Student Management

@@ -22,8 +22,23 @@ public class Student {
     @Column(name = "gender")
     private String gender;
 
-    public Student() {
+    @Column(name = "address")
+    private String address;
 
+    @Column(name = "state")
+    private String state;
+
+    @Column(name = "country")
+    private String country;
+
+    @Column(name = "zip_code")
+    private int zipCode;
+
+    @Column(name = "class_standing")
+    private String classStanding;
+
+    public Student() {
+        super();
     }
 
     public Student(String firstName, String lastName, String email, String gender) {
@@ -71,5 +86,45 @@ public class Student {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public int getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(int zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public String getClassStanding() {
+        return classStanding;
+    }
+
+    public void setClassStanding(String classStanding) {
+        this.classStanding = classStanding;
     }
 }
