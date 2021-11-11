@@ -39,7 +39,6 @@ export default function AddStudents() {
                 zipCode: Number(zipCode),
                 classStanding: classStanding,
             }
-            console.log(student);
             await axios.post("http://localhost:8080/api/students", student);
         } catch (error) {
             console.error(error);

@@ -20,6 +20,15 @@ export default function StudentList() {
         }
     };
 
+    const handleStudentDelete = async (id) => {
+        try{
+            await axios.delete(`http://localhost:8080/api/students/${id}`);
+        } catch (e) {
+            console.error(e);
+        }
+        retrieveStudents();
+    }
+
     const boxColumnStyle = {
         display: 'flex',
         flexDirection: 'column',
@@ -149,7 +158,7 @@ export default function StudentList() {
                                     Edit Student
                                 </Link>
                             </Button>
-                            <Button size="small" fullWidth color="error">Delete Student</Button>     
+                            <Button size="small" fullWidth onClick={() => handleStudentDelete(student.id)} color="error">Delete Student</Button>     
                         </CardActions>
                     </Card>
                 </Grid>
